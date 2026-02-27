@@ -1,0 +1,84 @@
+.timelineContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    height: 100%;
+}
+
+.timelineItem {
+    display: flex;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.timelineItem:last-child {
+    padding-bottom: 0;
+    flex: 1;
+}
+
+.timelineDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--slate-border);
+    position: relative;
+    z-index: 2;
+    margin-top: 4px;
+}
+
+.timelineLine {
+    position: absolute;
+    top: 18px;
+    bottom: -4px;
+    left: 6px;
+    width: 2px;
+    background-color: var(--panel-border);
+    z-index: 1;
+}
+
+.waste {
+    background-color: #f59e0b;
+}
+
+.health {
+    background-color: var(--red-light);
+}
+
+.alert {
+    background-color: var(--red-critical);
+    box-shadow: 0 0 8px rgba(225, 29, 72, 0.5);
+}
+
+.action {
+    background-color: var(--teal-primary);
+}
+
+.timelineContent {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.time {
+    font-size: 0.75rem;
+    color: var(--slate-text);
+    font-weight: 500;
+    font-family: var(--font-outfit);
+}
+
+.eventText {
+    font-size: 0.95rem;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.footerNote {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--teal-light);
+    font-family: var(--font-inter);
+    font-weight: 600;
+    text-align: right;
+}

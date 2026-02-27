@@ -1,0 +1,84 @@
+.listContainer {
+    overflow-x: auto;
+    height: 100%;
+}
+
+.vehicleTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.vehicleTable th {
+    color: var(--slate-text);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.vehicleTable td {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--panel-border);
+    color: var(--foreground);
+    font-size: 0.875rem;
+}
+
+.vehicleTable tr:last-child td {
+    border-bottom: none;
+}
+
+.idCell {
+    font-family: var(--font-outfit);
+    font-weight: 600;
+}
+
+.driverCell {
+    color: var(--slate-text);
+}
+
+.complianceBar {
+    width: 80px;
+    height: 6px;
+    background-color: var(--slate-border);
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    overflow: hidden;
+}
+
+.complianceFill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.complianceText {
+    font-family: var(--font-outfit);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.statusBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.active {
+    background-color: rgba(20, 184, 166, 0.15);
+    color: var(--teal-light);
+}
+
+.deviated {
+    background-color: rgba(225, 29, 72, 0.15);
+    color: var(--red-light);
+}
+
+.delayed {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}

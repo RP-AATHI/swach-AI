@@ -1,0 +1,105 @@
+.heatmapContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.mapGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.wardCell {
+    border-radius: 6px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.wardCell:hover {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.normal {
+    background-color: var(--teal-dark);
+    opacity: 0.6;
+}
+
+.normal:hover {
+    opacity: 0.8;
+}
+
+.warning {
+    background-color: #f59e0b;
+    /* Amber/Orange */
+}
+
+.critical {
+    background-color: var(--red-critical);
+    box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
+}
+
+.pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulseAnim 2s infinite;
+    opacity: 0.5;
+}
+
+@keyframes pulseAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--panel-border);
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--slate-text);
+}
+
+.swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.criticalText {
+    color: var(--red-light);
+    font-weight: 500;
+}

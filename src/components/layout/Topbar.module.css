@@ -1,0 +1,122 @@
+.topbar {
+    height: 80px;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--foreground);
+}
+
+.date {
+    font-size: 0.875rem;
+    color: var(--slate-text);
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    width: 300px;
+    transition: border-color 0.2s;
+}
+
+.searchBar:focus-within {
+    border-color: var(--teal-primary);
+}
+
+.searchIcon {
+    color: var(--slate-text);
+    margin-right: 0.5rem;
+}
+
+.searchInput {
+    border: none;
+    background: transparent;
+    color: var(--foreground);
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.875rem;
+}
+
+.alertIndicator {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.alertIndicator:hover {
+    background-color: var(--slate-border);
+}
+
+.bellIcon {
+    font-size: 1.25rem;
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--red-critical);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: bold;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--background);
+}
+
+.actionBtn {
+    background-color: var(--teal-primary);
+    color: var(--white);
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-family: var(--font-inter);
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(15, 118, 110, 0.2);
+}
+
+.actionBtn:hover {
+    background-color: var(--teal-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px rgba(15, 118, 110, 0.3);
+}
+
+.actionBtn:active {
+    transform: translateY(0);
+}

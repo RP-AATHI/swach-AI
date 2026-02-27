@@ -1,0 +1,90 @@
+.chartContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.barsArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+    gap: 0.5rem;
+}
+
+.barGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.wasteBar {
+    width: 14px;
+    background-color: var(--teal-primary);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.5s ease;
+}
+
+.feverBar {
+    width: 14px;
+    background-color: var(--red-light);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.5s ease;
+    opacity: 0.85;
+}
+
+.wasteBar:hover,
+.feverBar:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.dayLabel {
+    font-size: 0.75rem;
+    color: var(--slate-text);
+    font-weight: 500;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+}
+
+.swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.swatchWaste {
+    background-color: var(--teal-primary);
+}
+
+.swatchFever {
+    background-color: var(--red-light);
+}
