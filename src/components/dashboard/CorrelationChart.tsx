@@ -1,6 +1,31 @@
+'use client';
+import { useState, useEffect } from 'react';
 import styles from './CorrelationChart.module.css';
 
+interface HealthData {
+    correlationConfidence: number;
+    message: string;
+}
+
 export default function CorrelationChart() {
+    const [healthData, setHealthData] = useState<HealthData | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchHealthData() {
+            try {
+                const res = await fetch('/api/health');
+                const data = await res.json();
+                setHealthData(data);
+            } catch (error) {
+                console.error("Error fetching health data:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchHealthData();
+    }, []);
+
     // Using a simplified CSS-based bar chart view for the MVP
     const dataPoints = [
         { day: 'Mon', waste: 40, fever: 20 },
@@ -42,6 +67,22 @@ export default function CorrelationChart() {
                     <div className={`${styles.swatch} ${styles.swatchFever}`}></div>
                     <span>Local Fever Reports</span>
                 </div>
+            </div>
+
+            <div style={{ marginTop: '20px', padding: '15px', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', borderLeft: '4px solid var(--primary-light)' }}>
+                <h4 style={{ margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span>🧠</span> AI Correlation Analysis
+                    {healthData?.correlationConfidence && (
+                        <span style={{ fontSize: '0.8em', background: 'var(--primary)', color: '#fff', padding: '2px 8px', borderRadius: '12px' }}>
+                            {healthData.correlationConfidence}% Confidence
+                        </span>
+                    )}
+                </h4>
+                {loading ? (
+                    <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-muted)' }}>Gemini AI is analyzing recent health trends...</p>
+                ) : (
+                    <p style={{ margin: 0, lineHeight: 1.5 }}>{healthData?.message || "Analysis currently unavailable."}</p>
+                )}
             </div>
         </div>
     );

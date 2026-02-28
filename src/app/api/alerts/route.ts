@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
+import { GoogleGenAI } from '@google/genai';
 
 export async function GET() {
-    const alerts = [
+    const defaultAlerts = [
         {
             id: "ALT-8921",
             timestamp: new Date().toISOString(),
@@ -20,5 +21,47 @@ export async function GET() {
         }
     ];
 
-    return NextResponse.json(alerts);
+    if (!process.env.GEMINI_API_KEY) {
+        return NextResponse.json(defaultAlerts);
+    }
+
+    try {
+        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+        const prompt = `
+        You are the Swachh-Ayush AI backend engine evaluating municipal waste and health events.
+        Based on the current scenario where Ward 15 has had skipped collection for 2 days, and recent light rainfall has occurred, generate a JSON array of 2 active alerts.
+        
+        The JSON should follow exactly this schema (Respond ONLY with JSON array):
+        [
+          {
+            "id": "ALT-XXXX",
+            "timestamp": "ISO Date String",
+            "type": "CRITICAL" | "WARNING" | "INFO",
+            "message": "Descriptive message about the alert",
+            "actionRecommended": "The automated action that should be taken",
+            "status": "pending" | "action_triggered"
+          }
+        ]
+        `;
+
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
+            config: {
+                responseMimeType: "application/json",
+            }
+        });
+
+        const textResponse = response.text;
+        if (textResponse) {
+            const parsedResponse = JSON.parse(textResponse);
+            return NextResponse.json(parsedResponse);
+        }
+    } catch (error) {
+        console.error("Gemini API Error in Alerts:", error);
+    }
+
+    // Fallback if AI fails or returns empty
+    return NextResponse.json(defaultAlerts);
 }
