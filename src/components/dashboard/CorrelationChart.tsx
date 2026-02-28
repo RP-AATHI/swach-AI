@@ -69,19 +69,19 @@ export default function CorrelationChart() {
                 </div>
             </div>
 
-            <div style={{ marginTop: '20px', padding: '15px', background: 'rgba(56, 189, 248, 0.1)', borderRadius: '8px', borderLeft: '4px solid var(--primary-light)' }}>
-                <h4 style={{ margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span>🧠</span> AI Correlation Analysis
+            <div style={{ marginTop: '24px', padding: '16px', background: 'var(--bg-panel)', borderRadius: 'var(--radius-md)', borderTop: '3px solid var(--primary-light)', boxShadow: 'var(--shadow-panel)' }}>
+                <h4 style={{ margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--foreground)' }}>
+                    <span style={{ fontSize: '1.2rem' }}>🧠</span> AI Health Correlation Analysis
                     {healthData?.correlationConfidence && (
-                        <span style={{ fontSize: '0.8em', background: 'var(--primary)', color: '#fff', padding: '2px 8px', borderRadius: '12px' }}>
+                        <span style={{ fontSize: '0.8rem', background: 'var(--primary)', color: '#fff', padding: '4px 10px', borderRadius: 'var(--radius-pill)', boxShadow: 'var(--shadow-glow)' }}>
                             {healthData.correlationConfidence}% Confidence
                         </span>
                     )}
                 </h4>
                 {loading ? (
-                    <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-muted)' }}>Gemini AI is analyzing recent health trends...</p>
+                    <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-muted)' }}>Gemini AI is analyzing real-time health and environmental trends...</p>
                 ) : (
-                    <p style={{ margin: 0, lineHeight: 1.5 }}>{healthData?.message || "Analysis currently unavailable."}</p>
+                    <p style={{ margin: 0, lineHeight: 1.6, color: 'var(--text-muted)' }}>{healthData?.message || "Analysis currently unavailable."}</p>
                 )}
             </div>
         </div>

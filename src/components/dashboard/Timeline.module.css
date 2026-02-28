@@ -36,21 +36,45 @@
     z-index: 1;
 }
 
-.waste {
-    background-color: #f59e0b;
-}
-
-.health {
-    background-color: var(--red-light);
+.warning {
+    background-color: var(--warning);
+    box-shadow: 0 0 8px var(--warning-light);
 }
 
 .alert {
-    background-color: var(--red-critical);
-    box-shadow: 0 0 8px rgba(225, 29, 72, 0.5);
+    background-color: var(--alert);
+    box-shadow: 0 0 8px var(--alert-glow);
 }
 
-.action {
-    background-color: var(--teal-primary);
+.actionButton {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: rgba(2, 132, 199, 0.1);
+    color: var(--primary-light);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.actionButton:hover:not(:disabled) {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.actionButton.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.actionButton.success {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
 }
 
 .timelineContent {
@@ -77,8 +101,6 @@
     margin-top: auto;
     padding-top: 1.5rem;
     font-size: 0.8rem;
-    color: var(--teal-light);
-    font-family: var(--font-inter);
     font-weight: 600;
     text-align: right;
 }
