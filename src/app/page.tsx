@@ -3,10 +3,34 @@ import Heatmap from "@/components/dashboard/Heatmap";
 import Timeline from "@/components/dashboard/Timeline";
 import CorrelationChart from "@/components/dashboard/CorrelationChart";
 import VehicleList from "@/components/dashboard/VehicleList";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className={styles.dashboardContainer}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroGlow}></div>
+        <div className={styles.heroContent}>
+          <div className={styles.heroTag}>Municipal Intelligence Platform</div>
+          <h1 className={styles.heroTitle}>Swachh-Ayush AI</h1>
+          <p className={styles.heroSubtitle}>Predict. Prevent. Protect.</p>
+          <p className={styles.heroDescription}>
+            Transforming city data into public health immunity. Our AI engine correlates missed waste collections with early health signals to predict and automatically trigger preventive actions against disease outbreaks before they occur.
+          </p>
+        </div>
+        <div className={styles.heroImageContainer}>
+          <Image
+            src="/hero-bg.png"
+            alt="Swachh-Ayush AI Smart City Dashboard"
+            fill
+            priority
+            className={styles.heroImage}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        </div>
+      </section>
+
       <div className={styles.statsRow}>
         <div className={`${styles.statCard} ${styles.red}`}>
           <div className={styles.statTitle}>

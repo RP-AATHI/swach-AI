@@ -120,3 +120,115 @@
 .actionBtn:active {
     transform: translateY(0);
 }
+
+/* Dropdown Menu Styles */
+.dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 320px;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-panel);
+    backdrop-filter: var(--glass-backdrop);
+    z-index: 50;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownHeader {
+    padding: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+    font-weight: 600;
+    color: var(--foreground);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dropdownList {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdownItem {
+    padding: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dropdownItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dropdownItem:last-child {
+    border-bottom: none;
+}
+
+.dropdownItemTitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.dropdownItemText {
+    font-size: 0.75rem;
+    color: var(--slate-text);
+}
+
+.dropdownItemTime {
+    font-size: 0.7rem;
+    color: var(--teal-light);
+    margin-top: 0.25rem;
+}
+
+.searchWrapper {
+    position: relative;
+}
+
+.searchDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-panel);
+    backdrop-filter: var(--glass-backdrop);
+    z-index: 50;
+    overflow: hidden;
+}
+
+.searchResultItem {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    cursor: pointer;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.searchResultItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.searchResultItem:last-child {
+    border-bottom: none;
+}
